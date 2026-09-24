@@ -1,0 +1,895 @@
+1. List ADT
+1.1 What is a List?
+
+A List is a linear data structure in which elements are arranged in a sequential order.
+
+For example:
+
+10 → 20 → 30 → 40 → 50
+
+Here, 10 is the first element and 50 is the last element.
+
+Each element has a specific position in the list.
+
+Real-life examples
+List of students in a class
+List of books in a library
+List of products in an online store
+List of songs in a playlist
+List of tasks in a to-do application
+2. What is ADT?
+
+ADT stands for Abstract Data Type.
+
+An ADT describes:
+
+What operations can be performed on data, but not how those operations are implemented.
+
+For example, a List ADT tells us that we can:
+
+Insert an element
+Delete an element
+Search for an element
+Access an element
+Update an element
+Find the size of the list
+
+But it does not specify whether the list should be implemented using:
+
+Array
+Linked List
+
+So:
+
+              LIST ADT
+                 |
+       ----------------------
+       |                    |
+   Array List          Linked List
+                         |
+             -------------------------
+             |           |           |
+          Singly      Circular     Doubly
+3. Characteristics of List ADT
+
+A list generally has the following characteristics:
+
+1. Ordered
+
+Elements are stored in a particular sequence.
+
+A → B → C → D
+2. Linear
+
+Every element except the first has a predecessor, and every element except the last has a successor.
+
+3. Duplicates may be allowed
+
+Example:
+
+10 → 20 → 20 → 30
+4. Elements have positions
+
+For example:
+
+Position:  1   2   3   4
+Element:  10  20  30  40
+4. Operations of List ADT
+
+The common operations performed on a list are:
+
+4.1 Create
+
+Creates an empty list.
+
+List = [ ]
+4.2 Insert
+
+Adds a new element to the list.
+
+Example:
+
+Before:
+10 → 20 → 40
+
+Insert 30
+
+After:
+10 → 20 → 30 → 40
+
+Insertion can occur:
+
+At beginning
+At end
+At a particular position
+4.3 Delete
+
+Removes an element from the list.
+
+Example:
+
+Before:
+10 → 20 → 30 → 40
+
+Delete 30
+
+After:
+10 → 20 → 40
+4.4 Search
+
+Finds whether an element exists in the list.
+
+Example:
+
+10 → 20 → 30 → 40
+
+Search for 30.
+
+Result:
+
+30 found
+4.5 Access / Retrieve
+
+Obtains an element at a particular position.
+
+Example:
+
+Position: 1   2   3   4
+Element:  10  20  30  40
+
+Retrieve position 3:
+
+30
+4.6 Update
+
+Changes the value of an existing element.
+
+Before:
+10 → 20 → 30
+
+Update 20 to 25
+
+After:
+10 → 25 → 30
+4.7 Traverse
+
+Visits every element of the list.
+
+10 → 20 → 30 → 40
+
+Traversal:
+
+10
+20
+30
+40
+4.8 Find Length
+
+Returns the number of elements.
+
+10 → 20 → 30 → 40
+
+Length = 4
+
+5. Array-Based Implementation of List
+
+In an array-based list, elements are stored in contiguous memory locations.
+
+Example:
+
+Array:
+
+Index:    0    1    2    3    4
+         -------------------------
+Value:   10   20   30   40   50
+
+The elements are stored next to each other in memory.
+
+5.1 Representation
+
+We can represent an array list as:
+
+A[0], A[1], A[2], ..., A[n-1]
+
+where:
+
+A = array
+n = number of elements
+6. Insertion in Array-Based List
+
+Suppose we have:
+
+10  20  30  40
+
+We want to insert 25 at position 3.
+
+First, shift the elements to the right.
+
+Before:
+
+10  20  30  40
+        ↓
+
+Shift:
+
+10  20  30  30  40
+
+Then insert:
+
+10  20  25  30  40
+Important point
+
+Insertion in the middle requires shifting elements.
+
+Therefore, insertion can take O(n) time.
+
+7. Deletion in Array-Based List
+
+Suppose:
+
+10  20  30  40  50
+
+Delete 30.
+
+We shift the elements after 30 one position to the left.
+
+10  20  40  50
+
+Therefore, deletion from the middle takes O(n) time.
+
+8. Advantages of Array-Based Lists
+9. Simple implementation
+
+Arrays are easy to understand and implement.
+
+2. Fast access
+
+Elements can be accessed directly using an index.
+
+Example:
+
+A[3]
+
+takes O(1) time.
+
+3. Good cache performance
+
+Since elements are stored continuously, accessing nearby elements is efficient.
+
+4. Less memory overhead
+
+No pointer is required for each element.
+
+9. Disadvantages of Array-Based Lists
+10. Fixed size
+
+A normal array has a fixed capacity.
+
+2. Insertion is expensive
+
+Elements may need to be shifted.
+
+3. Deletion is expensive
+
+Elements may need to be shifted.
+
+4. Memory wastage
+
+If the array is larger than required, unused positions occupy memory.
+
+10. Linked List Implementation
+
+A linked list stores elements in separate memory locations called nodes.
+
+Each node contains:
+
+Data
+Link/pointer to another node
+
+Basic structure:
+
++------+------+
+| Data | Link |
++------+------+
+
+Example:
+
+10 → 20 → 30 → 40 → NULL
+11. Advantages of Linked Lists
+12. Dynamic size
+
+The list can grow or shrink during program execution.
+
+2. Easy insertion
+
+Elements can be inserted without shifting other elements.
+
+3. Easy deletion
+
+Elements can be deleted by changing links.
+
+4. Efficient memory utilization
+
+Memory is allocated when nodes are created.
+
+12. Disadvantages of Linked Lists
+13. Extra memory
+
+Pointers require additional memory.
+
+2. No direct/random access
+
+To reach the 4th element, we must start from the first node.
+
+3. Traversal is slower
+
+Compared with arrays, accessing arbitrary elements takes more time.
+
+4. Pointer manipulation
+
+Incorrect pointer handling can cause errors.
+
+13. Types of Linked Lists
+
+The major types are:
+
+Linked Lists
+     |
+     |-------------------------
+     |            |           |
+  Singly      Circularly    Doubly
+  Linked       Linked        Linked
+   List         List          List
+
+Now let's study each one.
+
+14. Singly Linked List
+
+A singly linked list is a linked list where each node contains:
+
+Data
+Pointer to the next node
+
+Structure:
+
++------+------+
+| Data | Next |
++------+------+
+
+Example:
+
+HEAD
+ ↓
+10 → 20 → 30 → 40 → NULL
+
+The last node contains NULL in its next field.
+
+15. Structure of Singly Linked List
+
+A node can be represented as:
+
+Node
+{
+    data
+    next
+}
+
+For example:
+
+Node 1          Node 2          Node 3
++----+------+    +----+------+    +----+------+
+| 10 |  ●---|--->| 20 |  ●---|--->| 30 | NULL |
++----+------+    +----+------+    +----+------+
+
+HEAD stores the address of the first node.
+
+16. Operations on Singly Linked List
+16.1 Traversal
+
+Start from HEAD and follow the links until NULL.
+
+HEAD
+ ↓
+10 → 20 → 30 → NULL
+
+Visit:
+
+10
+20
+30
+17. Insertion in Singly Linked List
+
+Insertion can be performed in three common locations.
+
+A. Insertion at beginning
+
+Before:
+
+HEAD
+ ↓
+20 → 30 → 40 → NULL
+
+Insert 10.
+
+After:
+
+HEAD
+ ↓
+10 → 20 → 30 → 40 → NULL
+
+Steps:
+
+Create new node.
+Store data.
+Make new node point to current HEAD.
+Make HEAD point to new node.
+B. Insertion at End
+
+Before:
+
+10 → 20 → 30 → NULL
+
+Insert 40.
+
+After:
+
+10 → 20 → 30 → 40 → NULL
+
+Steps:
+
+Create new node.
+Traverse to the last node.
+Set last node's next to the new node.
+Set new node's next to NULL.
+C. Insertion in Middle
+
+Before:
+
+10 → 20 → 40 → NULL
+
+Insert 30 after 20.
+
+After:
+
+10 → 20 → 30 → 40 → NULL
+
+The links are changed carefully.
+
+18. Deletion in Singly Linked List
+
+Deletion can also occur at:
+
+Beginning
+End
+Specific position
+Delete first node
+
+Before:
+
+10 → 20 → 30 → NULL
+
+After deleting 10:
+
+20 → 30 → NULL
+
+HEAD is moved to the second node.
+
+19. Applications of Singly Linked Lists
+
+Singly linked lists are used in:
+
+Implementing stacks
+Implementing queues
+Dynamic memory management
+Polynomial representation
+Graph adjacency lists
+Hash table chaining
+Maintaining dynamic collections
+20. Circularly Linked List
+
+In a circular linked list, the last node does not contain NULL.
+
+Instead, it points back to the first node.
+
+Example:
+
+       ┌───────────────────┐
+       ↓                   │
+10 → 20 → 30 → 40 ─────────┘
+↑
+HEAD
+
+More clearly:
+
+HEAD
+ ↓
+10 → 20 → 30 → 40
+↑              ↓
+└──────────────┘
+
+Thus:
+
+Last node → First node
+21. Types of Circular Linked Lists
+
+There are mainly two types:
+
+1. Circular singly linked list
+
+Each node contains:
+
+Data + Next
+
+and the last node points to the first node.
+
+2. Circular doubly linked list
+
+Each node contains:
+
+Previous + Data + Next
+
+and links form a circle in both directions.
+
+22. Advantages of Circular Linked List
+23. No NULL at the end
+
+The last node points to the first node.
+
+2. Useful for repeated traversal
+
+We can continuously move through the list.
+
+3. Efficient for round-robin operations
+
+One process can be followed by another repeatedly.
+
+4. Useful in circular queues
+
+Circular linked lists can help implement cyclic structures.
+
+23. Applications of Circular Linked Lists
+24. Round Robin CPU Scheduling
+
+Processes are executed one after another repeatedly.
+
+P1 → P2 → P3 → P4
+↑              ↓
+└──────────────┘
+2. Multiplayer games
+
+Players can take turns continuously.
+
+3. Music playlists
+
+After the last song, the first song can play again.
+
+4. Circular queues
+
+Useful for implementing cyclic queues.
+
+5. Token passing
+
+Used in systems where a token moves continuously among nodes.
+
+24. Doubly Linked List
+
+A doubly linked list is a linked list where each node has three fields:
+
+Previous | Data | Next
+
+Structure:
+
++------+-----+------+
+| Prev | Data| Next |
++------+-----+------+
+
+Example:
+
+NULL ← 10 ⇄ 20 ⇄ 30 ⇄ 40 → NULL
+
+Each node can move:
+
+Forward
+Backward
+25. Structure of Doubly Linked List
+HEAD
+ ↓
++------+------+      +------+------+      +------+------+
+| NULL |  10  | ⇄    |  10  |  20  | ⇄    |  20  |  30  |
++------+------+      +------+------+      +------+------+
+
+Conceptually:
+
+NULL ← 10 ⇄ 20 ⇄ 30 → NULL
+26. Operations on Doubly Linked List
+26.1 Forward Traversal
+
+Start from HEAD.
+
+10 → 20 → 30 → 40
+26.2 Backward Traversal
+
+Start from the last node.
+
+40 → 30 → 20 → 10
+
+This is possible because every node has a previous pointer.
+
+27. Insertion in Doubly Linked List
+
+Suppose:
+
+10 ⇄ 20 ⇄ 40
+
+Insert 30 between 20 and 40.
+
+After:
+
+10 ⇄ 20 ⇄ 30 ⇄ 40
+
+Multiple links must be updated:
+
+20.next = 30
+30.prev = 20
+
+30.next = 40
+40.prev = 30
+28. Deletion in Doubly Linked List
+
+Suppose:
+
+10 ⇄ 20 ⇄ 30 ⇄ 40
+
+Delete 30.
+
+After:
+
+10 ⇄ 20 ⇄ 40
+
+The links between 20 and 40 are adjusted.
+
+29. Advantages of Doubly Linked List
+30. Bidirectional traversal
+
+Can move forward and backward.
+
+2. Easy deletion
+
+A node can be removed by adjusting previous and next links.
+
+3. Easy insertion
+
+Insertion before or after a node is convenient.
+
+4. Useful for navigation
+
+Forward/backward movement is naturally supported.
+
+30. Disadvantages of Doubly Linked List
+31. Extra memory
+
+Each node contains two pointers.
+
+Previous + Data + Next
+2. More complex
+
+More links need to be maintained.
+
+3. More chances of pointer errors
+
+If one link is not updated properly, the list may become corrupted.
+
+31. Applications of Doubly Linked Lists
+
+Doubly linked lists are commonly used in:
+
+1. Browser history
+Previous ← Current → Next
+
+We can move backward and forward between pages.
+
+2. Undo and Redo
+Action 1 ⇄ Action 2 ⇄ Action 3
+3. Music players
+
+Previous and next song navigation.
+
+4. Image viewers
+
+Previous and next image.
+
+5. Deques
+
+A double-ended queue can be implemented efficiently using a doubly linked list.
+
+32. Comparison of Array List and Linked List
+Feature	Array List	Linked List
+Memory	Contiguous	Non-contiguous
+Size	Usually fixed/dynamic resizing	Dynamic
+Random access	Fast	Slow
+Access by index	O(1)	O(n)
+Insertion in middle	O(n)	O(n) traversal; link update itself O(1)
+Deletion in middle	O(n)	O(n) traversal; link update itself O(1)
+Extra pointer memory	No	Yes
+Memory utilization	May have unused capacity	Allocated as needed
+Implementation	Simple	More complex
+33. Comparison of Singly, Circular and Doubly Linked Lists
+Feature	Singly	Circular	Doubly
+Links per node	1	1	2
+Forward traversal	Yes	Yes	Yes
+Backward traversal	No	No	Yes
+Last node points to	NULL	First node	NULL normally
+Memory	Less	Less	More
+Complexity	Simple	Moderate	More complex
+Common use	Stacks, queues	Round Robin	Browser history, undo/redo
+34. Applications of Lists
+
+Lists are one of the most commonly used data structures.
+
+34.1 Student Records
+
+A list can store:
+
+Student 1
+Student 2
+Student 3
+Student 4
+34.2 Shopping Cart
+
+An e-commerce application can maintain:
+
+Product A
+Product B
+Product C
+
+Products can be added or removed dynamically.
+
+34.3 Music Playlist
+
+A playlist can contain:
+
+Song 1 → Song 2 → Song 3 → Song 4
+
+A linked list allows easy insertion and deletion of songs.
+
+A circular list can repeat songs continuously.
+
+34.4 Browser History
+
+A doubly linked list can represent:
+
+Google ⇄ YouTube ⇄ GitHub ⇄ ChatGPT
+
+The user can move:
+
+Back ←
+
+or
+
+→ Forward
+34.5 Operating Systems
+
+Lists are used for:
+
+Process scheduling
+Ready queues
+Memory management
+Device management
+
+For example:
+
+Ready Queue:
+
+P1 → P2 → P3 → P4
+34.6 Polynomial Representation
+
+A polynomial such as:
+
+5x³ + 4x² + 3x + 2
+
+can be represented using nodes:
+
+Coefficient | Exponent
+     5      |    3
+     4      |    2
+     3      |    1
+     2      |    0
+
+A linked list is useful because the number of terms can change dynamically.
+
+34.7 Graph Representation
+
+Graphs can use adjacency lists.
+
+Example:
+
+A → B → C
+B → A → D
+C → A
+D → B
+
+Each vertex maintains a list of connected vertices.
+
+34.8 Hash Tables
+
+Linked lists are commonly used for collision handling using chaining.
+
+Example:
+
+Hash index 2:
+
+20 → 32 → 42 → NULL
+
+Multiple values that map to the same index can be stored in a linked list.
+
+34.9 Undo/Redo Operations
+
+Doubly linked lists can maintain a sequence of operations.
+
+Action 1 ⇄ Action 2 ⇄ Action 3 ⇄ Action 4
+
+The user can move backward and forward.
+
+34.10 Round-Robin Scheduling
+
+Circular linked lists are useful for repeatedly processing elements.
+
+P1 → P2 → P3 → P4
+↑              ↓
+└──────────────┘
+
+After P4, execution returns to P1.
+
+35. Important Time Complexities
+
+For exam purposes, remember these basic complexities.
+
+Array-based list
+Operation	Complexity
+Access	O(1)
+Search	O(n)
+Insert at beginning	O(n)
+Insert at middle	O(n)
+Insert at end	O(1) if space is available
+Delete at beginning	O(n)
+Delete at middle	O(n)
+Singly linked list
+Operation	Complexity
+Access	O(n)
+Search	O(n)
+Insert at beginning	O(1)
+Insert after known node	O(1)
+Delete at beginning	O(1)
+Delete after known node	O(1)
+
+Note: If we first need to search/traverse to find the position, that traversal can take O(n).
+
+Doubly linked list
+Operation	Complexity
+Forward traversal	O(n)
+Backward traversal	O(n)
+Access by position	O(n)
+Insert at known position/node	O(1) after reaching it
+Delete a known node	O(1)
+36. Overall Diagram for Revision
+
+Remember the following diagram:
+
+                    LIST
+                      |
+                List ADT
+                      |
+          -------------------------
+          |                       |
+     Array-Based              Linked List
+       List                       |
+                          ---------------------
+                          |         |           |
+                       Singly   Circular     Doubly
+                       Linked    Linked       Linked
+                        List      List         List
+                          |         |           |
+                       One link   Circular    Two links
+                          |         |           |
+                       Forward    Repeated   Forward &
+                       only       traversal  Backward
